@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block head_title %}Welcome |{{ block.super }} {% endblock %}
+
+<style>
+{% block style %}
+/*.text-align-center {
+	text-align: center;
+}*/
+
+.jumbotron {
+	background-color: #63A0FF;
+	color: white;
+}
+
+{% endblock %}
+</style>
+
+{% block jumbotron_content %}
+<div class="jumbotron">
+ <div class="container">
+	<div class='col-sm-6'>
+        <h1>Try Django 1.8</h1>
+        <p>The MVP Landing project is designed to get your project started. The goal is to help you launch as soon as possible with the least amount of investment using time or money. Join Us today.</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+        </p>
+    </div>
+    <div class='col-sm-6'> 
+    	<iframe width="560" height="315" src="https://www.youtube.com/embed/2uLYO1LUf6Q" frameborder="0" allowfullscreen></iframe>
+    </div> 
+   </div>
+</div> 
+{% endblock %}  
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-3 pull-right">
+		<p class='lead'>{{title}}</p>
+		<body>
+			<h1>Newsletter Sign Up Form</h1>
+			<p>{{message}}</p>
+			<form method='POST' actions=''>{% csrf_token %}
+			{{form|crispy}}
+			<input class='btn btn-primary' type='submit' value='Sign Up'/>
+			</form>
+			<!-- <button type="button">Yes</button> 
+			<button type="button">No</button> -->
+		</body>
+	</div>
+</div>
+{% endblock %}

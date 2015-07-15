@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block head_title %}Welcome |{{ block.super }} {% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-xs-10 col-sm-8 col-md-4">
+		<head>
+			<title>{{title}}</title>
+		</head>
+		<body>
+			<h1>Contact Form</h1>
+			<p>{{message}}</p>
+			<form method='POST' actions=''>{% csrf_token %}
+				{{form|crispy}}
+
+				<input class='btn btn-primary' type='submit' value='Submit'/>
+
+
+			</form>
+			<!-- <button type="button">Yes</button> 
+			<button type="button">No</button> -->
+
+		</body>
+
+	</div>
+</div>
+{% endblock %}
